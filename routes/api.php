@@ -20,3 +20,7 @@ Route::post('school/{id}','School\SchoolController@update');
 Route::get('school/{id}','School\SchoolController@show');
 Route::delete('school/{id}', 'School\SchoolController@destroy');
 Route::post('school/search/result', 'School\SchoolController@search');
+
+Route::get('alat','AlatController@index');
+Route::post('alat','AlatController@store');
+Route::post('alat/search/result', 'AlatController@search');

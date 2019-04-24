@@ -24,3 +24,11 @@ Route::post('school/search/result', 'School\SchoolController@search');
 Route::get('alat','AlatController@index');
 Route::post('alat','AlatController@store');
 Route::post('alat/search/result', 'AlatController@search');
+
+Route::get('food','FoodController@index');
+Route::post('food','FoodController@store');
+Route::post('food/search/result', 'FoodController@search');
+
+Route::get('bunga','FlowerController@index');
+Route::post('bunga','FlowerController@store');
+Route::post('bunga/search/result', 'FoodController@search');

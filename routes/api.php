@@ -31,4 +31,4 @@ Route::post('food/search/result', 'FoodController@search');
 
 Route::get('bunga','FlowerController@index');
 Route::post('bunga','FlowerController@store');
-Route::post('bunga/search/result', 'FoodController@search');
+Route::post('bunga/search/result', 'FlowerController@search');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Flower;
 use Illuminate\Http\Request;
+use App\Response;
 
 class FlowerController extends Controller
 {
@@ -14,14 +15,7 @@ class FlowerController extends Controller
      */
     public function index()
     {
-        $flowers = Flower::all();
-
-        return Response()->json([
-
-            'message' => 'berhasil',
-            'status' => 'oke',
-            'data' => $flowers
-        ],200);
+        return response() -> json(Response::transform(Flower::get(), "ok" , true), 200);
     }
 
     /**
@@ -55,12 +49,10 @@ class FlowerController extends Controller
             'photo' => $request->file('photo')->store('gambar')
         ]);
 
-        return Response()->json([
-
-            'message' => 'berhasil',
-            'status' => 'oke',
-            'data' => $flower
-        ],200);
+        return response()->json(
+                Response::transform(
+                    $bug, 'successfully created', true
+                ), 201);
     }
 
      public function search(Request $request){

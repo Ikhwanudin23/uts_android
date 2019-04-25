@@ -105,8 +105,13 @@ class FlowerController extends Controller
      * @param  \App\Flower  $flower
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Flower $flower)
+    public function destroy($id)
     {
-        //
+        $bug = Flower::find($id);
+        if(is_null($bug)){
+            return response() -> json(array('message'=>'cannot delete because record not found', 'status'=>false),200);
+        }
+        Flower::destroy($id);
+        return response() -> json(array('message'=>'succesfully deleted', 'status' => false), 200);
     }
 }

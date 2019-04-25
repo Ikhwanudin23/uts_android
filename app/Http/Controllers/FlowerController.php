@@ -51,7 +51,7 @@ class FlowerController extends Controller
 
         return response()->json(
                 Response::transform(
-                    $bug, 'successfully created', true
+                    $flower, 'successfully created', true
                 ), 201);
     }
 

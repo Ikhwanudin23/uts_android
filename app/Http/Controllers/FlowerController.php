@@ -52,7 +52,7 @@ class FlowerController extends Controller
         $flower = Flower::create([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
-            'photo' => $request->file('photo')->store('bunga')
+            'photo' => $request->file('photo')->store('gambar')
         ]);
 
         return Response()->json([

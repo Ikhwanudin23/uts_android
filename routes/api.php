@@ -24,6 +24,7 @@ Route::post('school/search/result', 'School\SchoolController@search');
 Route::get('alat','AlatController@index');
 Route::post('alat','AlatController@store');
 Route::post('alat/search/result', 'AlatController@search');
+ROute::delete('alat/{id}', 'AlatController@destroy');
 
 Route::get('food','FoodController@index');
 Route::post('food','FoodController@store');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Alat;
 use Illuminate\Http\Request;
+use App\Response;
 
 class AlatController extends Controller
 {
@@ -19,7 +20,7 @@ class AlatController extends Controller
         return Response()->json([
 
             'message' => 'berhasil',
-            'status' => 'oke',
+            'status' => true,
             'data' => $alat
         ],200);
     }
@@ -58,7 +59,7 @@ class AlatController extends Controller
         return Response()->json([
 
             'message' => 'berhasil',
-            'status' => 'oke',
+            'status' => true,
             'data' => $alat
         ],200);
 
@@ -114,8 +115,13 @@ class AlatController extends Controller
      * @param  \App\Alat  $alat
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Alat $alat)
+    public function destroy($id)
     {
-        //
+        $bug = Alat::find($id);
+        if(is_null($bug)){
+            return response() -> json(array('message'=>'cannot delete because record not found', 'status'=>false),200);
+        }
+        Alat::destroy($id);
+        return response() -> json(array('message'=>'succesfully deleted', 'status' => true), 200);
     }
 }
